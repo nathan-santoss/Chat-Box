@@ -1,0 +1,25 @@
+{
+  "name": "chat-box",
+  "version": "1.0.0",
+  "description": "criação de chatbox para aula",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electronmon src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathan-santoss/Chat-Box.git"
+  },
+  "author": "nathan-santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nathan-santoss/Chat-Box/issues"
+  },
+  "homepage": "https://github.com/nathan-santoss/Chat-Box#readme",
+  "dependencies": {
+    "electron": "^39.0.0",
+    "electronmon": "^2.0.4"
+  }
+}
