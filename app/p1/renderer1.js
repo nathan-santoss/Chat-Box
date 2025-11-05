@@ -17,11 +17,11 @@ const enviarMensagem = () => {
 
 }
 
-const escreverMensagemRecebida = (mensagem) => {
-    document.getElementById('recebedor').innerHTML += `FULANO: ${mensagem} <br>`
+const escreverMensagemRecebida = (mensagem, nome) => {
+    document.getElementById('recebedor').innerHTML += `${nome}: ${mensagem} <br>`
 }
 
-window.api.receberP1((event, mensagem) =>{
-    escreverMensagemRecebida(mensagem)
+window.api.receberP1((event, mensagem, nome) =>{
+    escreverMensagemRecebida(mensagem, nome)
 })
 

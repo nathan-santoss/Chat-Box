@@ -51,7 +51,7 @@ ipcMain.on('enviando-Mp1', (event, mensagem, nome) =>{
     janela2.webContents.send('devolver-para-p2', mensagem,nome)
 })
 
-ipcMain.on('enviando-Mp2', (event, mensagem) =>{
-    janela1.webContents.send('devolver-para-p1', mensagem)
+ipcMain.on('enviando-Mp2', (event, mensagem, nome) =>{
+    janela1.webContents.send('devolver-para-p1', mensagem, nome)
 })
 

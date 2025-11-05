@@ -14,7 +14,7 @@ const enviarMensagem = () => {
     const msg = document.getElementById('mensagem-emissor').value
     if(msg.trim() === ''){return}
     document.getElementById('emissor').innerHTML += `${nome}: ${msg} <br>`
-    window.api.enviarP2(msg)
+    window.api.enviarP2(msg, nome)
     document.getElementById('mensagem-emissor').value = ''
 
 }
@@ -24,10 +24,5 @@ const escreverMensagemRecebida = (mensagem, nome) => {
 }
 
 window.api.receberP2((event, mensagem, nome) =>{
-    escreverMensagemRecebida(mensagem)
+    escreverMensagemRecebida(mensagem, nome)
 })
-
-
-
-
-
