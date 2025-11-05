@@ -1,3 +1,5 @@
+
+
 let nome
 const setName = () => {
     nome = document.getElementById('input-name').value
@@ -10,17 +12,22 @@ const setName = () => {
 
 const enviarMensagem = () => {
     const msg = document.getElementById('mensagem-emissor').value
+    if(msg.trim() === ''){return}
     document.getElementById('emissor').innerHTML += `${nome}: ${msg} <br>`
-    
+    window.api.enviarP2(msg)
+    document.getElementById('mensagem-emissor').value = ''
+
+}
+// função exclusiva para escrever no HTML a mensagem recebida 
+const escreverMensagemRecebida = (mensagem, nome) => {
+    document.getElementById('recebedor').innerHTML += `${nome}: ${mensagem} <br>`
 }
 
-window.addEventListener('devolver-para-p2', (event) => {
-    const msg = window.api.devolver(mensagem)
-    receberMensagem(msg)
+window.api.receberP2((event, mensagem, nome) =>{
+    escreverMensagemRecebida(mensagem)
 })
 
 
-receberMensagem = (mensagem) => {
-    document.getElementById('recebedor').innerHTML = `FULANO: ${mensagem}`
-}
+
+
 

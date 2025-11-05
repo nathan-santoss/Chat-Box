@@ -12,11 +12,16 @@ const enviarMensagem = () => {
     const msg = document.getElementById('mensagem-emissor').value
     if(msg.trim() === ''){return}
     document.getElementById('emissor').innerHTML += `${nome}: ${msg} <br>`
-    window.api.enviarP1(mensagem)
+    window.api.enviarP1(msg, nome)
+    document.getElementById('mensagem-emissor').value = ''
 
 }
 
-receberMensagem = () => {
-    const msg = window.api.receberP1(mensagem)
+const escreverMensagemRecebida = (mensagem) => {
+    document.getElementById('recebedor').innerHTML += `FULANO: ${mensagem} <br>`
 }
+
+window.api.receberP1((event, mensagem) =>{
+    escreverMensagemRecebida(mensagem)
+})
 
