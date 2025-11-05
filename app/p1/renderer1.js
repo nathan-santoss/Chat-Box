@@ -6,4 +6,5 @@ const setName = () => {
 
 const enviarMensagem = () => {
     const msg = document.getElementById('mensagem-emissor').value
+    document.getElementById('emissor').innerHTML += `Você: ${msg} <br>`
 }
