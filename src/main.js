@@ -42,5 +42,11 @@ const criarJanela_p2 = () => {
 
 app.whenReady().then(() => {
     criarJanela_p1()
-    // criarJanela_p2()
+    criarJanela_p2()
 })
+
+ipcMain.on('enviando-Mp1', (event, mensagem) =>{
+    console.log(`Mensagem de - P1 - recebida: ${mensagem}`);
+    event.reply('devolver-para-p2', mensagem)
+})
+ipcMain.on()

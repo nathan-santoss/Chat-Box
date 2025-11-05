@@ -6,6 +6,33 @@
     <title>Chat-box</title>
 </head>
 <body>
-    
+    <div>
+        <h1>Chat</h1>
+        <div id="identificar">
+            <h3>Identificação</h3>
+            <label for="user">Nome: </label><input type="text" id="input-name">
+            <button onclick="setName()">INICIAR</button>
+        </div>
+        
+        <section id="nome-user" style="display: none;">
+            <h1 id="user"></h1>
+        </section>
+
+        
+        <div id="chat" style="display: none;">
+            <section>
+                <p id="emissor"></p>
+                <p id="recebedor">[ -- emissor --]</p>
+            </section>
+            
+            <section id="envio-mensagem">
+                <label for="mensagem">Escreva: </label>
+                <input type="text" id="mensagem-emissor">
+                <button onclick="enviarMensagem()">ENVIAR</button>
+            </section>
+        </div>
+    </div>
+
+    <script src="renderer1.js"></script>
 </body>
 </html>
