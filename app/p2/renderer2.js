@@ -14,7 +14,13 @@ const enviarMensagem = () => {
     
 }
 
-receberMensagem = () => {
+window.addEventListener('devolver-para-p2', (event) => {
     const msg = window.api.devolver(mensagem)
+    receberMensagem(msg)
+})
+
+
+receberMensagem = (mensagem) => {
+    document.getElementById('recebedor').innerHTML = `FULANO: ${mensagem}`
 }
 

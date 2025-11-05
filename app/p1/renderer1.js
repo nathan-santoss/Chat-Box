@@ -12,11 +12,11 @@ const enviarMensagem = () => {
     const msg = document.getElementById('mensagem-emissor').value
     if(msg.trim() === ''){return}
     document.getElementById('emissor').innerHTML += `${nome}: ${msg} <br>`
-    window.api.enviar(mensagem)
-    
+    window.api.enviarP1(mensagem)
+
 }
 
 receberMensagem = () => {
-    const msg = window.api.devolver(mensagem)
+    const msg = window.api.receberP1(mensagem)
 }
 
