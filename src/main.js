@@ -20,8 +20,13 @@ const criarJanela_p1 = () => {
     const conteudoHTML = path.join(__dirname, '../app/p1/index1.html')
     // janela.webContents.openDevTools()
     janela1.loadFile(conteudoHTML)
+
+
     let menu = Menu.buildFromTemplate(template)
     Menu.setApplicationMenu(menu)
+    janela1.webContents.on('context-menu', () => {
+        menu.popup({window: janela1})
+    })
 }
 let janela2 = null
 const criarJanela_p2 = () => {
@@ -41,6 +46,28 @@ const criarJanela_p2 = () => {
     // janela.webContents.openDevTools()
     janela2.loadFile(conteudoHTML)
     janela2.setMenu(null)
+}
+
+let janela_sobre
+const criarJanela_sobre = () => {
+    janela_sobre =  new BrowserWindow({
+        width: 300, height: 300, resizable: false, maximizable: false, minimizable: false,
+        webPreferences:{
+            nodeIntegration: false,
+            contextIsolation: true,
+            devTools: false,
+            sandbox: false,
+            preload: path.join(__dirname, 'preload.js')
+        }
+    })
+    
+    const conteudoHTML = path.join(__dirname, '../app/sobre/sobre.html')
+    // janela.webContents.openDevTools()
+    janela_sobre.loadFile(conteudoHTML)
+    let menu = Menu.buildFromTemplate(template)
+    Menu.setApplicationMenu(menu)
+    
+    janela_sobre.setMenu(null)
 
 }
 
@@ -56,7 +83,7 @@ const template = [
                     {label: 'Zoom',
                         submenu: [
                             {label: 'Apliar', role: 'zoomin'},
-                            {label: 'Restaurar', role: 'zoomout' }
+                            {label: 'Reduzir', role: 'zoomout' }
                         ]
                     }// fim do submenu "Zoom"
                 ]
@@ -65,6 +92,7 @@ const template = [
 
         ]
     },// fim do submenu 'Arquivo'
+    {label: 'Sobre', click: () => criarJanela_sobre()},
     {label: 'Sair', role: 'quit'}
 ]
 
